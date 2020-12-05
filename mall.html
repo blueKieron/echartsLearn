@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="./css/anlyse.css" />
+  <link rel="stylesheet" type="text/css" href="./css/nav.css" />
+  <link rel="stylesheet" type="text/css" href="./css/search.css" />
+  <script type="text/javascript" src="js/echarts.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    .l1 {
+      margin-left: 1px;
+      background-color: rgb(73, 73, 73);
+      height: 30px;
+      width: 140px;
+      color: white;
+      text-align: center;
+    }
+
+    .all {
+      float: left;
+      width: 88.55%;
+      height: 3000px;
+      padding-top: 4px;
+    }
+
+    .num {
+      height: 100px;
+      background-color: gainsboro;
+    }
+
+    .airChange {
+      float: left;
+      height: 300px;
+      width: 800px;
+      background-color: rgb(238, 236, 236);
+      margin: 2px 0 2px 0;
+    }
+
+    .airPrice {
+      float: left;
+      height: 300px;
+      width: 442.5px;
+      background-color: rgb(238, 236, 236);
+      margin-top: 2px;
+    }
+
+    .property {
+      height: 300px;
+      background-color: rgb(238, 236, 236);
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="anlyse">
+    <div class="left">欢迎来到电竞分析平台</div>
+    <div class="center">
+      <ul id="ul1">
+        <li>
+          <a href="#">行业分析</a>
+        </li>
+        <li>
+          <a href="#22">品牌分析</a>
+        </li>
+        <li>
+          <a href="#12">单品分析</a>
+        </li>
+      </ul>
+    </div>
+    <div class="right">您好，xxx</div>
+  </div>
+  <div class="ser">
+    <div class="img">
+      <img src="./img/JING.jpg" />
+    </div>
+    <div class="right">
+      <div class="searchBar">
+        <form action="#" type="get">
+          <input type="text" placeholder="请输入你要查询的产品名或型号" />
+          <input type="submit" value="search" />
+        </form>
+      </div>
+      <hot></hot>
+    </div>
+  </div>
+  <div class="nav">
+    <ul>
+      <li>全行业</li>
+      <li>冰箱</li>
+      <li>冷柜</li>
+      <li>洗衣机</li>
+      <li>空调</li>
+      <li>热水器</li>
+      <li>电视</li>
+      <li>厨房电器</li>
+      <li>生活电器</li>
+      <li>更多</li>
+    </ul>
+  </div>
+  <div style="float:left;">
+    <ul style="padding: 3px 0 3px 0;">
+      <li class="l1">全品牌</li>
+      <li class="l1">海尔</li>
+      <li class="l1">美的</li>
+      <li class="l1">格力</li>
+      <li class="l1">西门子</li>
+    </ul>
+  </div>
+  <div class="all">
+    <div class="num"></div>
+    <div class="airChange" id="i1"></div>
+    <div class="airPrice" id="i2"></div>
+    <div class="property" id='i3'></div>
+  </div>
+  <script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('i1'))
+    var PriceChart = echarts.init(document.getElementById('i2'))
+    var PieChart = echarts.init(document.getElementById('i3'))
+    option = {
+      color: ['rgb(243,119,57)', 'rgb(87,162,127)', 'rgb(90,177,239)', 'rgb(255,185,128)', 'rgb(216,122,128)',
+        'rgb(141,152,171)', '#ca8622', '#bda29a', 'rgb(123,104,238)', '#546570', '#c4ccd3'
+      ],
+      title: {
+        text: '空调价格变动趋势',
+        top: '10',
+        left: '10'
+      },
+      legend: {
+        data: ['销量', '平均价格'],
+        bottom: 5
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        top: '26%',
+        height: '60%',
+        containLabel: true
+      },
+      xAxis: [{
+        type: 'category',
+        data: ['2018.07', '2018.08', '2018.09', '2018.10', '2018.11', '2018.12', '2019.01', '2019.02', '2019.03',
+          '2019.04', '2019.05', '2019.06', '2019.07'
+        ],
+        axisLabel: {
+          interval: '0',
+          rotate: -50
+        }
+      }],
+      yAxis: [{
+        type: 'value',
+        position: 'left',
+        name: '销售/台'
+      }, {
+        type: 'value',
+        position: 'right',
+        name: '价格/元'
+      }],
+      series: [{
+        name: '销量',
+        type: 'bar',
+        data: [2700, 3300, 3000, 2600, 1900, 1400, 2500, 1700, 2500, 1600, 3600, 2300, 2900],
+        barWidth: '30'
+
+      }, {
+        name: '平均价格',
+        type: 'line',
+        yAxisIndex: 1,
+        data: [3000, 4100, 3500, 3650, 3000, 3500, 2600, 4200, 3000, 5000, 3200, 4000, 3000]
+      }]
+    };
+
+    option1 = {
+      color: ['rgb(195,216,149)', 'rgb(196,180,228)', 'rgb(90,177,239)', 'rgb(255,185,128)', 'rgb(216,122,128)',
+        'rgb(141,152,171)', '#ca8622', '#bda29a', 'rgb(123,104,238)', '#546570', '#c4ccd3'
+      ],
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { // 坐标轴指示器，坐标轴触发有效
+          type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+        }
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        top: '25.5%',
+        bottom: '14%',
+        containLabel: true
+      },
+      xAxis: [{
+        type: 'category',
+        data: [{
+          value: '1000元以下'
+        }, {
+          value: '1000元-5000元',
+          textStyle: {
+            width: '10',
+            height: '20'
+          }
+        }, {
+          value: '5000元-10000元',
+          textStyle: {
+            width: '10',
+            height: '20'
+          }
+        }, {
+          value: '10000元以上',
+          textStyle: {
+            width: '10%',
+            height: '20'
+          }
+        }],
+        axisLabel: {
+          interval: '0',
+          formatter: function (params) {
+            var newParamsName = "";
+            var paramsNameNumber = params.length;
+            var provideNumber = 6; //一行显示几个字
+            var rowNumber = Math.ceil(paramsNameNumber / provideNumber);
+            if (paramsNameNumber > provideNumber) {
+              for (var p = 0; p < rowNumber; p++) {
+                var tempStr = "";
+                var start = p * provideNumber;
+                var end = start + provideNumber;
+                if (p == rowNumber - 1) {
+                  tempStr = params.substring(start, paramsNameNumber);
+                } else {
+                  tempStr = params.substring(start, end) + "\n";
+                }
+                newParamsName += tempStr;
+              }
+
+            } else {
+              newParamsName = params;
+            }
+            return newParamsName
+          },
+        }
+      }],
+      yAxis: [{
+        type: 'value',
+        name: '型号/个'
+      }],
+      series: [{
+        name: '价格',
+        type: 'bar',
+        data: [45, 65, 41, 39],
+        barWidth: '25',
+        barGap: '5%'
+      }]
+    };
+
+    option2 = { //简单的 折线图+饼图 展示
+      color: ['rgb(103,188,147)', 'rgb(195,216,149)', 'rgb(236,224,157)', 'rgb(243,119,57)', 'rgb(191,70,70)',
+        'rgb(166,166,166)','rgb(223,192,143)', '#ca8622', '#bda29a', 'rgb(123,104,238)', '#546570', '#c4ccd3'
+      ],
+      title:{
+        text:'空调属性统计',
+        top:'10',
+        left:'10'
+      },
+      legend: [{
+        orient: 'horizontal',
+        data: ['1级', '2级','', '3级', '4级'],
+        left:'15%',
+        bottom:'8%',
+        
+      }, 
+      {
+        orient: 'horizontal',
+        data: ['小1匹', '1匹', '小1.5匹', '','1.5匹', '2匹', '2.5匹', '','3匹及以上'],
+        left:'45%',
+        bottom:'3%',
+        
+      },{
+        orient: 'horizontal',
+        data: ['壁挂式', '立柜式', '','窗式','吊顶式'],
+        left:'75%',
+        bottom:'8%',
+        
+      }],
+      series: [{
+          type: 'pie',
+          label:{
+            show:false
+          },
+          radius: ['35%', '55%'],
+          center: ['19%', '45%'],
+          data: [{
+              value: 25,
+              name: '1级'
+            },
+            {
+              value: 15,
+              name: '2级'
+            },
+            {
+              value: 25,
+              name: '3级'
+            },
+            {
+              value: 35,
+              name: '4级'
+            },
+          ]
+        },
+        {
+          type: 'pie',
+          label:{
+            show:false
+          },
+          radius: ['35%', '55%'],
+          center: ['50%', '45%'],
+          data: [
+          {
+              value: 10,
+              name: '小1匹'
+            },{
+              value: 8,
+              name: '1匹'
+            },{
+              value: 12,
+              name: '小1.5'
+            },{
+              value: 14,
+              name: '1.5匹'
+            },{
+              value: 21,
+              name: '2匹'
+            },{
+              value: 14,
+              name: '2.5匹'
+            },{
+              value: 21,
+              name: '3匹及以上'
+            },
+          ]
+        },{
+          type: 'pie',
+          radius: ['35%', '55%'],
+          center: ['80%', '45%'],
+          label:{
+            show:false
+          },
+          data: [{
+              value: 25,
+              name: '壁挂式'
+            },
+            {
+              value: 15,
+              name: '立柜式'
+            },
+            {
+              value: 25,
+              name: '窗式'
+            },
+            {
+              value: 35,
+              name: '吊顶式'
+            },
+          ]
+        }
+      ]
+    };
+
+    myChart.setOption(option);
+    PriceChart.setOption(option1);
+    PieChart.setOption(option2)
+  </script>
+</body>
+
+</html>

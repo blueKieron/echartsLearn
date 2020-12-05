@@ -1,0 +1,64 @@
+.anlyse {
+  background-color: rgb(50, 50, 50);
+  height: 35px;
+
+  /* position: relative; */
+}
+
+.anlyse .left {
+  /* 
+  position: absolute;
+  top: 15px;
+  
+  border: 1px solid #f00; */
+  font-size: 13px;
+  float: left;
+  line-height: 35px;
+  color: white;
+  margin-left: 8px;
+}
+
+.anlyse .center {
+  /* position: absolute;
+  left: 300px;
+  border: 1px solid #f00;
+   */
+  height: 35px;
+  float: left;
+  color: white;
+  font-size: 14px;
+}
+
+#ul1 {
+  list-style-type: none;
+  height: 15px;
+  line-height: 35px;
+  /* margin-top: 7px; */
+  margin-left: 20px;
+}
+
+#ul1 li {
+  display: inline;
+  margin-left: 80px;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: rgb(252, 164, 2);
+}
+
+.anlyse .right {
+  float: right;
+  color: white;
+  margin-right: 15px;
+  line-height: 35px;
+  font-size: 13px;
+}

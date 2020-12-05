@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="main" style="width:800px;height: 400px;border:1px gainsboro solid;padding:0"></div>
+  <div id="main1" style="width:800px;height: 400px;border:1px gainsboro solid;padding:0"></div>
+  <script type="text/javascript" src="js/echarts.js"></script>
+  <script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    var myChart1 = echarts.init(document.getElementById('main1'));
+
+    // 指定图表的配置项和数据
+    option = {
+      color:['rgb(45,199,201)','rgb(196,180,228)', 'rgb(90,177,239)', 'rgb(255,185,128)', 'rgb(216,122,128)','rgb(141,152,171)',  '#ca8622', '#bda29a','rgb(123,104,238)', '#546570', '#c4ccd3'],
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { // 坐标轴指示器，坐标轴触发有效
+          type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+        }
+      },
+      legend: {
+        data: ['电源', '冷藏', '冰箱', '热水器', '冷柜', '电器维修及安装', '洗衣机', '净化器', '其他']
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        top: '6%',
+        containLabel: true
+      },
+      xAxis: [{
+        type: 'category',
+        data: ['淘宝', '1688', '拼多多', '天猫', '京东', '惊喜']
+      }],
+      yAxis: [{
+        type: 'value'
+      }],
+      series: [{
+          name: '电源',
+          stack: '商品',
+          type: 'bar',
+          data: [{
+            value: 500,
+            //自定义标签样式，仅对该数据项有效
+            label: {
+              // color:"rgb(45,199,201)"
+            },
+            //自定义特殊 itemStyle，仅对该数据项有效
+            itemStyle: {
+              color: "rgb(45,199,201)"
+            }
+          }, {
+            value: 0,
+            //自定义标签样式，仅对该数据项有效
+            label: {},
+            //自定义特殊 itemStyle，仅对该数据项有效
+            itemStyle: {
+              color: "rgb(45,199,201)"
+            }
+          }, {
+            value: 10,
+            //自定义标签样式，仅对该数据项有效
+            label: {},
+            //自定义特殊 itemStyle，仅对该数据项有效
+            itemStyle: {
+              color: "rgb(45,199,201)"
+            }
+          },  {
+            value: 180,
+            //自定义标签样式，仅对该数据项有效
+            label: {},
+            //自定义特殊 itemStyle，仅对该数据项有效
+            itemStyle: {
+              color: "rgb(45,199,201)"
+            }
+          },  {
+            value: 0,
+            //自定义标签样式，仅对该数据项有效
+            label: {},
+            //自定义特殊 itemStyle，仅对该数据项有效
+            itemStyle: {
+              color: "rgb(45,199,201)"
+            }
+          },  {
+            value: 0,
+            //自定义标签样式，仅对该数据项有效
+            label: {},
+            //自定义特殊 itemStyle，仅对该数据项有效
+            itemStyle: {
+              color: "rgb(45,199,201)"
+            }
+          }]
+        },
+        {
+          name: '冷藏',
+          type: 'bar',
+          stack: '商品',
+          data: [100, 5, 40, 0, 0, 0]
+        },
+        {
+          name: '冰箱',
+          type: 'bar',
+          stack: '商品',
+          data: [30, 90, 20, 0, 0, 0]
+        },
+        {
+          name: '热水器',
+          type: 'bar',
+          stack: '商品',
+          data: [40, 0, 40, 0, 0, 0]
+        },
+        {
+          name: '冷柜',
+          type: 'bar',
+          stack: '商品',
+          data: [40, 0, 30, 0, 0, 0, 0]
+        },
+        {
+          name: '电器维修及安装',
+          type: 'bar',
+          stack: '商品',
+          data: [0, 0, 10, 0, 0, 0]
+        },
+        {
+          name: '洗衣机',
+          type: 'bar',
+          stack: '商品',
+          data: [0, 50, 10, 0, 0, 0]
+        },
+        {
+          name: '净化器',
+          type: 'bar',
+          stack: '商品',
+          data: [60, 0, 0, 0, 0, 0, 0]
+        },
+        {
+          name: '其他',
+          type: 'bar',
+          stack: '商品',
+          data: [400, 600, 300, 60, 20, 10],
+          barWidth: 27
+        }
+      ]
+    };
+
+    option1 = {
+    color:['rgb(90,177,239)'],
+    title:{
+      text:'Q侵权-店铺危害度TOP10'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+   
+    grid: {
+        left: '35%',
+        right: '20%',
+        top: '10%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01],
+        name:'链条数量(条)'
+    },
+    yAxis: {
+        type: 'category',
+        data: ['d[s527684135]', '宇腾影音专卖店', '北京乐金汇浩电气设备', '宝忆年电子', '深圳福田百旺年', 'oneda百年','李倩','王慧莉','好邻居专卖店','杭州录好科技有限公司']
+    },
+    series: [
+        {
+            name: '商店',
+            type: 'bar',
+            label:{
+              show:true,
+              position:'right'
+            },
+            data: [25, 25, 25, 26, 28, 28,28,45,59,161]
+        }
+    ]
+};
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    myChart1.setOption(option1);
+  </script>
+</body>
+
+</html>

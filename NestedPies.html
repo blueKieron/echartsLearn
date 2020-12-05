@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+  <!-- <script type="text/javascript" src="js/echarts.common.js"></script> -->
+</head>
+<body>
+  <div id="main" style="width:800px;height: 400px;border:1px gainsboro solid;padding:0"></div>
+  <script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c}'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 10,
+        top:150,
+        itemWidth:15,
+        data: ['智家定制生态圈', '触点迭代生态圈', '大共享赋能平台', '万链共享生态圈', '文化产业生态圈','其他']
+    },
+    series: [
+        {
+            name: '产业使用分布',
+            type: 'pie',
+            radius: ['30%', '40%'],
+            width:10,
+            height:10,
+            right: "10%",
+            avoidLabelOverlap: true,
+            label: {
+                show: true,
+                position: 'outside',
+                formatter:'{d}',
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: 76.8, name: '智家定制生态圈'},
+                {value: 1.3, name: '触点迭代生态圈'},
+                {value: 17.3, name: '大共享赋能平台'},
+                {value: 4.5, name: '万链共享生态圈'},
+                {value: 0.1, name: '文化产业生态圈'},
+                {value:0.0,name:'其他'}
+            ],
+            width:'20%',
+            height:'10%',
+        }
+    ]
+};
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>

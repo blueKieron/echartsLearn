@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+  <!-- <script type="text/javascript" src="js/echarts.common.js"></script> -->
+</head>
+
+<body>
+  <div id="main" style="width:800px;height: 400px;border:1px gainsboro solid;padding:0"></div>
+  <script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var colors = ['#5793f3', '#d14a61', '#675bba'];
+
+
+    var colors = ['#5793f3', '#d14a61', '#675bba'];
+
+
+    option = {
+      color: colors,
+      title:{
+        text:'指标数量变化趋势'
+      },
+      tooltip: {
+        trigger: 'none',
+        axisPointer: {
+          type: 'cross'
+        }
+      },
+      legend: {
+        data: ['有效指标', '新增', '下线'],
+        bottom: 5
+      },
+      grid: {
+        top: 60,
+        bottom: 70
+      },
+      xAxis: [{
+        type: 'category',
+        axisTick: {
+          alignWithLabel: true
+        },
+        boundaryGap: false,
+        axisLine: {
+          lineStyle: {
+            color: colors[1]
+          }
+        },
+        data: ['202002', '202003', '202004', '202005', '202006', '202007']
+      }],
+      yAxis: [{
+        type: 'value',
+        position: 'left',
+        name: '数量/个'
+      }, {
+        type: 'value',
+        position: 'right',
+        name: '变化数量/个'
+      }],
+      series: [{
+          name: '有效指标',
+          type: 'line',
+          // xAxisIndex: 1,
+          data: [60, 87, 90, 114, 114, 114]
+        },
+        {
+          name: '新增',
+          type: 'line',
+          yAxisIndex: 1,
+          areaStyle: {
+            normal: {
+              color: 'rgb(187,238,205)'
+            }
+          },
+          itemStyle: {
+            normal: {
+              color: 'rgb(187,238,205)',
+              lineStyle: {
+                color: 'rgb(187,238,205)'
+              }
+            }
+          },
+          data: [0, 17, 3, 24, 0, 0]
+        },
+        {
+          name: '下线',
+          type: 'line',
+          // yAxisIndex: 1,
+          data: [0, 0, 0, 0, 0, 0]
+        }
+      ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  </script>
+</body>
+
+</html>

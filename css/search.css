@@ -1,0 +1,35 @@
+.ser{
+  height: 70px;
+}
+.ser .img{
+  margin-top: 20px;
+  margin-left:40px;
+  float: left;
+}
+.ser .img img{
+  height:40px;
+}
+.ser .right{
+  float: left;
+  width: 900px;
+}
+input[type=text]{
+  height:33px;
+  width:700px;
+  border:2px solid rgb(239,155,39);
+  outline: none;
+}
+input[type=submit]{
+  height:37px;
+  width: 80px;
+  background-color: rgb(239,155,39);
+  border:none;
+  color: white;
+  padding: 6px;
+  text-decoration: none;
+  
+}
+.searchBar{
+  margin-top: 15px;
+  margin-left:50px
+}
